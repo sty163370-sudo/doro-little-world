@@ -160,17 +160,31 @@ function FoodGrid({ entries }: { entries: MomentEntry[] }) {
   )
 }
 
+const moodTones: Record<string, { card: string; mark: string }> = {
+  'mood-joy': { card: 'bg-peach', mark: 'bg-[#ef9b6a]' },
+  'mood-anxiety': { card: 'bg-[#fff3d8]', mark: 'bg-[#e2b15a]' },
+  'mood-fear': { card: 'bg-[#efe6f8]', mark: 'bg-[#8d6aa3]' },
+  'mood-pride': { card: 'bg-blush', mark: 'bg-berry' },
+  'mood-low': { card: 'bg-[#f3eef1]', mark: 'bg-[#b7a6ae]' },
+}
+
 function MoodNotes({ entries }: { entries: MomentEntry[] }) {
   return (
-    <div className="grid gap-4 md:grid-cols-2">
-      {entries.map((entry) => (
-        <article key={entry.id} className="rounded-[28px] bg-blush px-5 py-6 ring-1 ring-white">
-          <h3 className="font-hand text-[2.4rem] text-berry">{entry.title}</h3>
-          <p className="mt-3 leading-relaxed text-ink">{entry.note}</p>
-          <p className="mt-4 text-sm text-muted">{formatDate(entry.date)}</p>
-        </article>
-      ))}
-    </div>
+    <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
+      {entries.map((entry) => {
+        const tone = moodTones[entry.id] ?? { card: 'bg-blush', mark: 'bg-berry' }
+        return (
+          <li
+            key={entry.id}
+            className={cn('flex min-h-36 flex-col rounded-[24px] px-4 py-5 ring-1 ring-white', tone.card)}
+          >
+            <span className={cn('h-1.5 w-7 rounded-full', tone.mark)} aria-hidden />
+            <h3 className="mt-4 font-display text-2xl text-ink">{entry.title}</h3>
+            <p className="mt-2 text-sm leading-relaxed text-muted">{entry.note}</p>
+          </li>
+        )
+      })}
+    </ul>
   )
 }
 
