@@ -49,7 +49,7 @@ export function RecentMoments() {
               >
                 <span
                   className={cn(
-                    'flex h-11 w-11 items-center justify-center rounded-2xl text-berry ring-1 ring-white',
+                    'flex h-11 w-11 items-center justify-center rounded-tile text-berry ring-1 ring-edge',
                     shelfTones[shelf.icon],
                   )}
                 >

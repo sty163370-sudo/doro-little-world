@@ -37,11 +37,11 @@ export function AboutPreview() {
             </div>
 
             <div className="flex flex-col gap-3">
-              <div className="mx-auto w-36 rounded-[22px] bg-paper p-2 shadow-soft ring-1 ring-sakura md:mx-0">
+              <div className="mx-auto w-36 rounded-card bg-paper p-2 shadow-soft ring-1 ring-sakura md:mx-0">
                 <img
                   src={avatar}
                   alt="晒太阳的头像"
-                  className="aspect-square w-full rounded-[16px] object-cover object-[center_28%]"
+                  className="aspect-square w-full rounded-media object-cover object-[center_28%]"
                 />
               </div>
               <ul className="space-y-3">
@@ -49,7 +49,7 @@ export function AboutPreview() {
                   <li
                     key={fact.label}
                     className={cn(
-                      'rounded-2xl px-4 py-3',
+                      'rounded-tile px-4 py-3',
                       noteTones[index % noteTones.length],
                       noteTilts[index % noteTilts.length],
                     )}

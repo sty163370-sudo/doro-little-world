@@ -1,4 +1,4 @@
-import doroHero from '../assets/doro/doro-hero.png'
+import { DoroFigure } from '../components/DoroFigure.tsx'
 import { PageHeader } from '../components/PageHeader.tsx'
 import { SocialLinks } from '../components/SocialLinks.tsx'
 import { WashiTape } from '../components/Decorations.tsx'
@@ -21,12 +21,9 @@ export function About() {
         <aside className="relative mx-auto w-full max-w-sm lg:sticky lg:top-28">
           <WashiTape className="absolute top-0 left-8 z-10 -rotate-6" />
           <div className={cn(journalCard, 'px-4 pt-8 pb-5')}>
-            <img
-              src={doroHero}
-              alt="粉色头发、戴着玫瑰和紫色蝴蝶结的可爱 DORO"
-              width={777}
-              height={723}
-              className="doro-mask mx-auto w-full max-w-[280px]"
+            <DoroFigure
+              imgClassName="mx-auto w-full max-w-[280px]"
+              frameClassName="mt-3"
             />
             <p className="text-center font-hand text-[1.8rem] text-ink">晒太阳和 DORO</p>
             <p className="mt-1 text-center text-sm text-muted">计算机 · 前端 · 生活</p>

@@ -58,7 +58,7 @@ export function WashiTape({ className }: StampProps) {
     <div
       aria-hidden
       className={cn(
-        'pointer-events-none h-7 w-24 rounded-[3px] bg-lilac shadow-sm',
+        'pointer-events-none h-7 w-24 rounded-[3px] bg-lilac shadow-soft',
         className,
       )}
       style={{

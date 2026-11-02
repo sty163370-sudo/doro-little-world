@@ -13,7 +13,7 @@ export function NotFound() {
         alt=""
         width={777}
         height={723}
-        className="doro-mask w-48"
+        className="w-48"
       />
       <h1 className="font-display text-4xl text-ink">这一页走丢了</h1>
       <p className="mt-2 text-muted">DORO 在桌子底下找过了，不在这里。</p>

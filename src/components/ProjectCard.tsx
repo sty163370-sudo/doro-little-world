@@ -32,15 +32,7 @@ export function ProjectCard({ project, expanded = false }: ProjectCardProps) {
       className={cn(liftCard, 'flex h-full scroll-mt-28 flex-col overflow-hidden')}
     >
       <div className={cn('relative h-40', covers[project.theme])}>
-        <div
-          aria-hidden
-          className="absolute inset-0 opacity-50"
-          style={{
-            backgroundImage:
-              'radial-gradient(rgb(255 253 252 / 0.7) 1.2px, transparent 1.2px)',
-            backgroundSize: '14px 14px',
-          }}
-        />
+        <div aria-hidden className="cover-grain absolute inset-0 opacity-50" />
         <p className="absolute top-4 left-4 rounded-full bg-paper/85 px-3 py-1 font-hand text-xl text-berry">
           {project.kicker}
         </p>

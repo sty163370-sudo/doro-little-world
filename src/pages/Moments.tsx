@@ -63,7 +63,7 @@ function ShelfSection({ shelf, entries }: { shelf: MomentShelf; entries: MomentE
   return (
     <section id={`shelf-${shelf.id}`} className="scroll-mt-28">
       <div className="mb-5 flex items-end gap-3">
-        <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-blush text-berry">
+        <span className="flex h-11 w-11 items-center justify-center rounded-tile bg-blush text-berry">
           <Icon className="h-5 w-5" aria-hidden />
         </span>
         <div>
@@ -89,7 +89,7 @@ function PhotoWall({ entries }: { entries: MomentEntry[] }) {
     <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
       {entries.map((entry) => (
         <figure key={entry.id} className={cn(liftCard, 'p-3 pb-5')}>
-          <div className="flex aspect-[4/3] items-center justify-center overflow-hidden rounded-[20px] bg-gradient-to-br from-blush via-lilac to-peach">
+          <div className="flex aspect-[4/3] items-center justify-center overflow-hidden rounded-media bg-gradient-to-br from-blush via-lilac to-peach">
             {entry.image ? (
               <img src={entry.image} alt={entry.title} className="h-full w-full object-cover" />
             ) : (
@@ -117,7 +117,7 @@ function MusicList({ entries }: { entries: MomentEntry[] }) {
             <img
               src={entry.image}
               alt={entry.title}
-              className="h-20 w-20 shrink-0 rounded-2xl object-cover"
+              className="h-20 w-20 shrink-0 rounded-media object-cover"
             />
           ) : (
             <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-lilac text-berry">
@@ -161,11 +161,11 @@ function FoodGrid({ entries }: { entries: MomentEntry[] }) {
 }
 
 const moodTones: Record<string, { card: string; mark: string }> = {
-  'mood-joy': { card: 'bg-peach', mark: 'bg-[#ef9b6a]' },
-  'mood-anxiety': { card: 'bg-[#fff3d8]', mark: 'bg-[#e2b15a]' },
-  'mood-fear': { card: 'bg-[#efe6f8]', mark: 'bg-[#8d6aa3]' },
+  'mood-joy': { card: 'bg-mood-joy', mark: 'bg-[#ef9b6a]' },
+  'mood-anxiety': { card: 'bg-mood-anxiety', mark: 'bg-[#e2b15a]' },
+  'mood-fear': { card: 'bg-mood-fear', mark: 'bg-[#b9a4dc]' },
   'mood-pride': { card: 'bg-blush', mark: 'bg-berry' },
-  'mood-low': { card: 'bg-[#f3eef1]', mark: 'bg-[#b7a6ae]' },
+  'mood-low': { card: 'bg-mood-low', mark: 'bg-[#c7b4bc]' },
 }
 
 function MoodNotes({ entries }: { entries: MomentEntry[] }) {
@@ -176,7 +176,7 @@ function MoodNotes({ entries }: { entries: MomentEntry[] }) {
         return (
           <li
             key={entry.id}
-            className={cn('flex min-h-36 flex-col rounded-[24px] px-4 py-5 ring-1 ring-white', tone.card)}
+            className={cn('flex min-h-36 flex-col rounded-card px-4 py-5 ring-1 ring-edge', tone.card)}
           >
             <span className={cn('h-1.5 w-7 rounded-full', tone.mark)} aria-hidden />
             <h3 className="mt-4 font-display text-2xl text-ink">{entry.title}</h3>

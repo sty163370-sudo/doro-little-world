@@ -42,7 +42,7 @@ export function BlogPost() {
         ))}
       </div>
       {post.code ? (
-        <figure className="mt-8 overflow-hidden rounded-[24px] shadow-soft ring-1 ring-sakura/80">
+        <figure className="mt-8 overflow-hidden rounded-card shadow-soft ring-1 ring-sakura/80">
           <figcaption className="bg-blush px-4 py-2 font-hand text-[1.45rem] text-berry">
             {post.code.filename}
           </figcaption>

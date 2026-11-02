@@ -1,13 +1,7 @@
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { useEffect, useId, useState } from 'react'
 import avatar from '../assets/avatar/avatar.jpg'
-import { doroQuotes } from '../data/quotes.ts'
-
-function pickQuote(current: string) {
-  const pool = doroQuotes.filter((quote) => quote !== current)
-  const source = pool.length > 0 ? pool : doroQuotes
-  return source[Math.floor(Math.random() * source.length)] ?? ''
-}
+import { pickQuote } from '../data/quotes.ts'
 
 export function DoroMascot() {
   const reduce = useReducedMotion()
@@ -47,7 +41,7 @@ export function DoroMascot() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={reduce ? undefined : { opacity: 0, y: 6, scale: 0.98 }}
             transition={{ duration: 0.22 }}
-            className="relative mb-2 max-w-64 rounded-[22px] rounded-br-md bg-paper px-4 py-3 font-hand text-[1.55rem] text-ink shadow-soft ring-1 ring-sakura"
+            className="relative mb-2 max-w-64 rounded-card rounded-br-md bg-paper px-4 py-3 font-hand text-[1.55rem] text-ink shadow-soft ring-1 ring-sakura"
           >
             {quote}
           </motion.p>
@@ -64,7 +58,7 @@ export function DoroMascot() {
       >
         <span
           aria-hidden
-          className="absolute -top-1 -left-1 z-10 flex h-7 w-7 items-center justify-center rounded-full bg-blush font-hand text-lg text-berry shadow-sm ring-1 ring-white"
+          className="absolute -top-1 -left-1 z-10 flex h-7 w-7 items-center justify-center rounded-full bg-blush font-hand text-lg text-berry shadow-soft ring-1 ring-white"
         >
           ♡
         </span>

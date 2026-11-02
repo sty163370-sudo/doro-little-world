@@ -1,7 +1,7 @@
 import { Search, X } from 'lucide-react'
 import { useMemo, useState } from 'react'
-import doroHero from '../assets/doro/doro-hero.png'
 import { BlogCard } from '../components/BlogCard.tsx'
+import { DoroFigure } from '../components/DoroFigure.tsx'
 import { PageHeader } from '../components/PageHeader.tsx'
 import { posts } from '../data/posts.ts'
 import { usePageTitle } from '../hooks/usePageTitle.ts'
@@ -70,9 +70,9 @@ export function Blog() {
                   aria-pressed={active}
                   onClick={() => setCategory(item)}
                   className={cn(
-                    'rounded-full px-4 py-1.5 font-display text-sm',
+                    'btn-motion rounded-full px-4 py-1.5 font-display text-sm',
                     active
-                      ? 'bg-berry text-white'
+                      ? 'bg-pop text-white'
                       : 'bg-paper text-ink ring-1 ring-sakura hover:bg-blush',
                   )}
                 >
@@ -93,13 +93,7 @@ export function Blog() {
           </div>
         ) : (
           <div className="mx-auto flex max-w-sm flex-col items-center py-8 text-center">
-            <img
-              src={doroHero}
-              alt=""
-              width={777}
-              height={723}
-              className="doro-mask w-40"
-            />
+            <DoroFigure imgClassName="mx-auto w-40" frameClassName="mt-3" />
             <p className="font-hand text-[2rem] text-berry">
               {query.trim() ? '没有找到这篇' : '还空着'}
             </p>
