@@ -13,7 +13,9 @@ export type Project = {
   github: string
 }
 
-export type PostCategory = '前端' | 'AI' | '随想'
+export const postCategories = ['技术', '随想'] as const
+
+export type PostCategory = (typeof postCategories)[number]
 
 export type PostCode = {
   filename: string

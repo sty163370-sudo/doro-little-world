@@ -5,8 +5,7 @@ import { cn } from '../lib/cn.ts'
 import { liftCard } from '../lib/styles.ts'
 
 const categoryTone: Record<PostCategory, string> = {
-  前端: 'bg-blush text-berry',
-  AI: 'bg-lilac text-ink',
+  技术: 'bg-lilac text-ink',
   随想: 'bg-peach text-berry',
 }
 

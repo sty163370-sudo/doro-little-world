@@ -6,12 +6,9 @@ import { PageHeader } from '../components/PageHeader.tsx'
 import { posts } from '../data/posts.ts'
 import { usePageTitle } from '../hooks/usePageTitle.ts'
 import { cn } from '../lib/cn.ts'
-import type { PostCategory } from '../types.ts'
+import { postCategories, type PostCategory } from '../types.ts'
 
-const filters: Array<PostCategory | '全部'> = [
-  '全部',
-  ...Array.from(new Set(posts.map((post) => post.category))),
-]
+const filters: Array<PostCategory | '全部'> = ['全部', ...postCategories]
 
 export function Blog() {
   usePageTitle('博客')
@@ -103,8 +100,14 @@ export function Blog() {
               height={723}
               className="doro-mask w-40"
             />
-            <p className="font-hand text-[2rem] text-berry">没有找到这篇</p>
-            <p className="text-sm text-muted">换个词试试，或者看看全部笔记。</p>
+            <p className="font-hand text-[2rem] text-berry">
+              {query.trim() ? '没有找到这篇' : '还空着'}
+            </p>
+            <p className="text-sm text-muted">
+              {query.trim()
+                ? '换个词试试，或者看看全部笔记。'
+                : `${category}的文章之后会放在这里。`}
+            </p>
           </div>
         )}
       </div>
